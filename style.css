@@ -1,0 +1,464 @@
+/* =======================
+   GENERAL STYLES
+======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background: #555555;
+}
+
+/* =======================
+   BACKGROUND STYLES
+======================= */
+.fondo {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/fondox.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center; /* o left, right según prefieras */
+    z-index: -1;
+}
+
+/* =======================
+   MAIN CONTAINER
+======================= */
+.content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* =======================
+   CATEGORY SECTION
+======================= */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px 0;
+}
+
+.categories img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+    /* Borde blanco con efecto de contorno */
+    filter: drop-shadow(0px 0px 8px white) drop-shadow(0px 0px 8px white)
+            drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.5)); /* Sombra negra siguiendo la silueta */
+}
+
+.categories img:hover {
+    transform: scale(1.1);
+    
+    /* Más brillo en el borde y sombra más intensa */
+    filter: drop-shadow(0px 0px 5px white) drop-shadow(0px 0px 8px white)
+            drop-shadow(6px 6px 8px rgba(0, 0, 0, 0.6));
+}
+
+
+
+/* =======================
+   PRODUCT SECTION
+======================= */
+.products {
+    margin-bottom: 30px;
+}
+
+.card {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Product Category Colors */
+.card.trios { background-color: rgba(248, 215, 218, 0.6); }
+.card.duos { background-color: rgba(212, 237, 218, 0.6); }
+.card.antojitos { background-color: rgba(255, 243, 205, 0.6); }
+.card.especiales { background-color: rgba(209, 236, 241, 0.6); }
+.card.bebidas { background-color: rgba(195, 230, 203, 0.6); }
+.card.porciones { background-color: rgba(226, 227, 229, 0.6); }
+
+/* =======================
+   PRODUCT LIST & CARDS
+======================= */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Individual Product Card */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-body img {
+    width: 60%;
+    max-width: 100px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+/* Product Text */
+.product-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-body p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* =======================
+   PRODUCT FOOTER
+======================= */
+.product-footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Price Display */
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e63946;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    font-size: 12px;
+    text-align: center;
+    display: inline-block;
+    line-height: 1.2;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart:hover {
+    background-color: darkgreen;
+  }
+
+
+/*
+.add-to-cart {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+    transform: scale(1.2);
+}*/
+
+/* =======================
+   CART CONTAINER
+======================= */
+#cart-container {
+    position: fixed; /* Mantiene el carrito fijo en la pantalla */
+    top: 280px; /* Distancia desde la parte superior */
+    right: -25px; /* Distancia desde el borde derecho */
+    display: inline-block; /* Evita que se expanda */
+    width: auto; /* Solo ocupa el tamaño necesario */
+    height: auto;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Ícono del carrito */
+#cart-icon {
+    width: 150px;
+    cursor: pointer;
+    display: block; /* Asegura que se mantenga dentro del div */
+    margin: 0 auto; /* Centra el icono */
+}
+
+/* Contador del carrito (encima del ícono) */
+#cart-counter {
+    position: absolute;
+    top: 20px; /* Ajusta la posición encima del ícono */
+    right: 30px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 5px 8px;
+    min-width: 22px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Product Counter */
+.product-counter {
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 3px 8px;
+    position: absolute;
+    top: -18px;
+    right: -5px;
+    min-width: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =======================
+   PESCADITO ANIMATION
+======================= */
+#pescadito {
+    width: 40px;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* =======================
+   BACK TO TOP BUTTON
+======================= */
+.back-to-top {
+    width: 70px;
+    height: auto;
+    /*filter: invert(1);  Hace la imagen blanca */
+}
+
+.back-to-top:hover {
+    opacity: 0.7;
+}
+
+
+/* Contenedor del botón para volver al inicio */
+.back-to-top-container {
+    position: fixed;
+    bottom: 80px; /* Ajustar altura */
+    left: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: none; /* Se mostrará con JS */
+    transition: opacity 0.8s ease;
+    z-index: 1000;
+}
+
+/* Texto debajo del botón */
+.back-to-top-text {
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+/* =======================
+   MODAL STYLES
+======================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative; /* 🔹 Asegura que .close se posicione respecto a este contenedor */
+}
+
+
+/* Modal Close Button */
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #f8f8f8;
+}
+
+/* Cart Total */
+.cart-total {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Cart Buttons */
+.cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* Generic Buttons */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Red Button */
+.btn-red {
+    background: red;
+    color: white;
+}
+
+/* Green Button */
+.btn-green {
+    background: green;
+    color: white;
+}
+
+/* Action Buttons */
+.btn-action {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 2px;
+}
+
+.btn-action.plus {
+    background: green;
+    color: white;
+    border-radius: 50%;
+}
+
+.btn-action.minus {
+    background: red;
+    color: white;
+    border-radius: 50%;
+}
+
+/* =======================
+   DELIVERY
+======================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+.container-delivery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-delivery {
+    width: 80px; /* Ajusta el tamaño según necesites */
+    transform-origin: bottom left;
+    animation: rotateImageDelivery 2s infinite alternate ease-in-out;
+    filter: drop-shadow(0 0 5px white);
+}
+
+@keyframes rotateImageDelivery {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-30deg); }
+}
+
+.text-delivery {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 22px;
+    color: red;
+    text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white;
+}
+
+.text-delivery2 {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
+    color: red;
+    text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white;
+}
+
+/* =======================
+   animacion papitar
+======================= */
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.palpitar {
+    animation: heartbeat 0.5s ease-in-out 2;
+}
