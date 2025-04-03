@@ -1,3 +1,4 @@
+
 //document.addEventListener("DOMContentLoaded", function () {
     //  const backToTopButton = document.querySelector(".back-to-top");
       const cartCounter = document.getElementById("cart-counter");
@@ -321,12 +322,12 @@ function animatePescadito(event, cartIcon) {
 }
 // Opción 1: Esperar a que el DOM esté listo
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM cargado, ahora sí puedes usar eventos");
+    alert("DOM cargado, ahora sí puedes usar eventos");
 });
 
 // Opción 2: Usar window.onload (espera a todos los recursos)
 window.onload = function() {
-    console.log("Página completamente cargada");
+    alert("Página completamente cargada");
 };
 
  // });
