@@ -1,10 +1,9 @@
 
-//document.addEventListener("DOMContentLoaded", function () {
-    //  const backToTopButton = document.querySelector(".back-to-top");
+document.addEventListener("DOMContentLoaded", function () {
+
       const cartCounter = document.getElementById("cart-counter");
       const cartIcon = document.getElementById("cart-icon");
       const pescadito = document.getElementById("pescadito");
-  
   
       const cartModal = document.getElementById("cart-modal");
       const closeModal = document.querySelector(".close");
@@ -320,16 +319,28 @@ function animatePescadito(event, cartIcon) {
         }
     );
 }
-// Opción 1: Esperar a que el DOM esté listo
-document.addEventListener("DOMContentLoaded", function() {
-    alert("DOM cargado, ahora sí puedes usar eventos");
-});
 
-// Opción 2: Usar window.onload (espera a todos los recursos)
-window.onload = function() {
-    alert("Página completamente cargada");
-};
+// Receptor universal para ambas plataformas
+function receiveFromApp(message) {
+    alert("Mensaje recibido:", message);
+}
 
- // });
+// Enviar a la app (compatible con Android/iOS)
+function sendToApp(message) {
+    try {
+        // Android
+        if (window.AndroidApp) {
+            AndroidApp.postMessage(JSON.stringify(message));
+        } 
+        // iOS
+        else if (window.webkit && window.webkit.messageHandlers) {
+            window.webkit.messageHandlers.iosListener.postMessage(JSON.stringify(message));
+        }
+    } catch (e) {
+        alert("Error sending to app:", e);
+    }
+}
+
+ });
   
   
