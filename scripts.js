@@ -32,26 +32,14 @@
   
   
   // Cerrar el modal si el usuario hace clic fuera de él
-  window.addEventListener("pointerdown", (event) => {
+  document.addEventListener("pointerdown", (event) => {
       if (event.target === cartModal) {
           cartModal.style.display = "none";
           location.reload();
       }
   });
   
-  
-  
-  
-  //window.addEventListener("click", (event) => {
-  //    if (event.target === cartModal) {
-  //        cartModal.style.display = "none";
-  //        location.reload(); // Recargar la página al cerrar el modal
-  //    }
-  //});
-  
-  
-  
-  
+    
   // Función para actualizar el modal con los productos del carrito
   function updateCartModal() {
       cartItemsContainer.innerHTML = "";
@@ -142,7 +130,7 @@
       const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
   
       // Redirigir al usuario a WhatsApp
-      window.open(urlWhatsApp, "_blank");
+      document.open(urlWhatsApp, "_blank");
   
       // Limpiar el carrito después de enviar el pedido
       cart = [];
@@ -158,7 +146,7 @@
   
   
       // Función para desplazarse a una sección
-      window.scrollToSection = function (sectionId) {
+      document.scrollToSection = function (sectionId) {
          alert("OK");
           const section = document.getElementById(sectionId);
           if (section) {
@@ -176,7 +164,7 @@
   
       // Mostrar/ocultar el botón para volver al inicio
   
-    window.addEventListener("scroll", () => {
+      document.addEventListener("scroll", () => {
       const categoriesSection = document.getElementById("inicio");
       const categoriesBottom = categoriesSection.getBoundingClientRect().bottom;
   
@@ -297,19 +285,19 @@ function animatePescadito(event, cartIcon) {
     const rectCart = cartIcon.getBoundingClientRect();
     
     // Posición inicial del pescadito
-    pescadito.style.left = `${rectButton.left + window.scrollX + rectButton.width / 2}px`;
-    pescadito.style.top = `${rectButton.top + window.scrollY}px`;
+    pescadito.style.left = `${rectButton.left + document.scrollX + rectButton.width / 2}px`;
+    pescadito.style.top = `${rectButton.top + document.scrollY}px`;
     pescadito.style.display = "block";
 
     // Destino del carrito
-    const cartX = rectCart.left + window.scrollX;
-    const cartY = rectCart.top + window.scrollY;
+    const cartX = rectCart.left + document.scrollX;
+    const cartY = rectCart.top + document.scrollY;
 
     gsap.fromTo(
         pescadito,
         { x: 0, y: 0, rotation: 0, scale: 1 },
         {
-            x: (cartX - rectButton.left - window.scrollX) / 2,  // Corrección en X
+            x: (cartX - rectButton.left - document.scrollX) / 2,  // Corrección en X
             y: -100,  // Movimiento hacia arriba
             rotation: 360,
             scale: 1.8,
@@ -317,8 +305,8 @@ function animatePescadito(event, cartIcon) {
             ease: "power1.out",
             onComplete: () => {
                 gsap.to(pescadito, {
-                    x: cartX - rectButton.left - window.scrollX, // Corrección en X
-                    y: cartY - rectButton.top - window.scrollY, // Corrección en Y
+                    x: cartX - rectButton.left - document.scrollX, // Corrección en X
+                    y: cartY - rectButton.top - document.scrollY, // Corrección en Y
                     rotation: 0,
                     scale: 1,
                     duration: 1,
