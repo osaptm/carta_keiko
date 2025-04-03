@@ -146,7 +146,7 @@
   
   
       // Función para desplazarse a una sección
-      scrollToSection = function (sectionId) {
+      window.scrollToSection = function (sectionId) {
          alert("OK");
           const section = document.getElementById(sectionId);
           if (section) {
