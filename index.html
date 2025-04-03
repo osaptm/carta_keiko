@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antojito Marino</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
     <link rel="icon" type="image/favicon.ico" href="favicon.ico">
@@ -36,7 +35,7 @@
     <!-- Sección de Categorías -->
     <section class="categories" id="inicio">
         <img src="img/trios.webp" alt="Trios" onclick="scrollToSection('trios')">
-        <img src="img/duos.webp" alt="Duos" onclick="scrollToSection('duos')">
+        <img src="img/duos.webp" alt="Duos" onclick="MyScrollToSection('duos')">
         <img src="img/antojitos.webp" alt="Antojitos" onclick="scrollToSection('antojitos')">
         <img src="img/especiales.webp" alt="Especiales" onclick="scrollToSection('especiales')">
         <img src="img/bebidas.webp" alt="Bebidas" onclick="scrollToSection('bebidas')">
@@ -635,29 +634,6 @@
 </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Enviar visita al servidor
-    fetch("track.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "action=visit"
-    });
-
-    // Registrar clics en el botón "Realizar Pedido"
-    let checkoutButton = document.getElementById("checkout");
-    if (checkoutButton) {
-        checkoutButton.addEventListener("click", function () {
-            fetch("track.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: "action=click"
-            });
-        });
-    }
-});
-</script>
-
-
+<script src="scripts.js"></script>
 </body>
 </html>

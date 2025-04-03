@@ -159,11 +159,20 @@
   
       // Función para desplazarse a una sección
       window.scrollToSection = function (sectionId) {
+         alert("OK");
           const section = document.getElementById(sectionId);
           if (section) {
               section.scrollIntoView({ behavior: "smooth" });
           }
       };
+
+      function myScrollToSection(sectionId){
+        alert("OK");
+         const section = document.getElementById(sectionId);
+         if (section) {
+             section.scrollIntoView({ behavior: "smooth" });
+         }
+     };
   
       // Mostrar/ocultar el botón para volver al inicio
   
