@@ -24,7 +24,7 @@ body {
     max-width: 800px;
     width: 100vw;
     height: 100vh;
-    background-image: url('img/fondox.webp');
+    background-image: url('img/fondox.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center; /* o left, right según prefieras */
@@ -164,20 +164,34 @@ body {
 
 /* Add to Cart Button */
 .add-to-cart {
-    background-color: green;
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 5px 5px;
-    font-size: 12px;
-    text-align: center;
-    display: inline-block;
-    line-height: 1.2;
-    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
   }
-  
+
   .add-to-cart:hover {
-    background-color: darkgreen;
+    background-color: #218838;
+    transform: scale(1.1);
+  }
+
+  .add-to-cart svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+  }
+
+  .add-to-cart:active {
+    transform: scale(0.95);
   }
 
 
@@ -233,22 +247,31 @@ body {
 }
 
 
-/* Product Counter */
+/* Product Counter Badge */
 .product-counter {
-    background: red;
+    background: #e63946;
     color: white;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     border-radius: 50%;
-    padding: 3px 8px;
+    padding: 2px 6px;
     position: absolute;
-    top: -18px;
-    right: -5px;
+    top: -8px;
+    right: -8px;
     min-width: 18px;
+    height: 18px;
     text-align: center;
-    display: flex;
+    display: none; /* Oculto por defecto */
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Cart Container para el botón de producto */
+.cart-container {
+    position: relative;
+    display: inline-block;
 }
 
 /* =======================

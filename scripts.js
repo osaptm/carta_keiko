@@ -86,12 +86,17 @@ document.addEventListener("DOMContentLoaded", function () {
         cartTotal.textContent = total.toFixed(2);
         cartCounter.textContent = itemsCount;
         totalItems = itemsCount;
+
+        // Actualizar todos los badges de productos después de modificar el carrito
+        updateAllProductCounters();
     }
 
     // Manejar los botones "+" y "-" dentro del modal
     cartItemsContainer.addEventListener("click", (event) => {
         if (event.target.classList.contains("plus") || event.target.classList.contains("minus")) {
-            const index = event.target.getAttribute("data-index");
+            const index = parseInt(event.target.getAttribute("data-index"));
+            const productName = cart[index]?.nombre; // Guardar nombre antes de modificar
+
             if (event.target.classList.contains("plus")) {
                 cart[index].cantidad++;
             } else {
@@ -103,6 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             saveCart();
             updateCartModal();
+
+            // Actualizar el badge del producto específico que fue modificado
+            if (productName) {
+                updateSpecificProductCounter(productName);
+            }
         }
     });
 
@@ -127,6 +137,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             updateCartModal();
             document.getElementById("cart-counter").textContent = "0";
+
+            // Ocultar todos los badges de productos
+            hideAllProductCounters();
 
             // Agregar la clase para el efecto de palpitación
             const cartContainer = document.getElementById("cart-container");
@@ -277,6 +290,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     updateProductCounter(card);
                 }
             });
+        });
+    }
+
+    // Función para actualizar el contador de un producto específico por nombre
+    function updateSpecificProductCounter(productName) {
+        const productCards = document.querySelectorAll(".product-card");
+        productCards.forEach(card => {
+            const h3Element = card.querySelector("h3");
+            if (h3Element && h3Element.textContent === productName) {
+                updateProductCounter(card);
+            }
+        });
+    }
+
+    // Función para actualizar TODOS los contadores de productos
+    function updateAllProductCounters() {
+        const productCards = document.querySelectorAll(".product-card");
+        productCards.forEach(card => {
+            updateProductCounter(card);
+        });
+    }
+
+    // Función para ocultar todos los contadores de productos (cuando se vacía el carrito)
+    function hideAllProductCounters() {
+        const allCounters = document.querySelectorAll(".product-counter");
+        allCounters.forEach(counter => {
+            counter.textContent = "";
+            counter.style.display = "none";
         });
     }
 
