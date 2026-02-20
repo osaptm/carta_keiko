@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const storedCart = localStorage.getItem("carrito");
         cart = storedCart ? JSON.parse(storedCart) : [];
     } catch (e) {
-        console.warn("Error accessing localStorage:", e);
         cart = [];
     }
 
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             localStorage.setItem("carrito", JSON.stringify(cart));
         } catch (e) {
-            console.warn("Error saving to localStorage:", e);
+
         }
     }
 
@@ -133,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 localStorage.removeItem("carrito");
             } catch (e) {
-                console.warn("Error removing from localStorage:", e);
+
             }
             updateCartModal();
             document.getElementById("cart-counter").textContent = "0";
@@ -162,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Número de WhatsApp (sin espacios ni símbolos)
-            const numeroWhatsApp = "955818631";
+            const numeroWhatsApp = "979022809";
 
             // Mensaje base
             let mensaje = "Hola, quisiera que me atiendan con mi pedido:\n\n";
@@ -172,21 +171,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 mensaje += `* ${item.cantidad} - ${item.nombre} \n`;
             });
 
-            // Codificar mensaje para URL
-            const mensajeCodificado = encodeURIComponent(mensaje);
-
-            // Generar enlace de WhatsApp
-            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
-
-            // Abrir WhatsApp - CORREGIDO: usar window.open en lugar de document.open
-            window.open(urlWhatsApp, "_blank");
+            mensajeMultiplatform(mensaje)
+//            // Codificar mensaje para URL
+//            const mensajeCodificado = encodeURIComponent(mensaje);
+//
+//            // Generar enlace de WhatsApp
+//            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensajeCodificado}`;
+//
+//            // Abrir WhatsApp - CORREGIDO: usar window.open en lugar de document.open
+//            window.open(urlWhatsApp, "_blank");
 
             // Limpiar el carrito después de enviar el pedido
             cart = [];
             try {
                 localStorage.removeItem("carrito");
             } catch (e) {
-                console.warn("Error removing from localStorage:", e);
+
             }
             document.getElementById("cart-counter").textContent = "0";
 
@@ -324,9 +324,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Llamar a la función para restaurar contadores al cargar la página
     restoreProductCounters();
 
-    console.clear();
-    console.table(cart);
-
     // Agregar funcionalidad de agregar productos al carrito
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", function (event) {
@@ -343,7 +340,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const productPrice = parseFloat(priceText);
 
             if (isNaN(productPrice)) {
-                console.error("Error parsing price:", priceText);
                 return;
             }
 
@@ -373,11 +369,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             updateProductCounter(productCard);
             saveCart();
-
-            console.clear();
-            console.table(cart);
-
-            // Animar el pescadito
             animatePescadito(event);
         });
     });
@@ -517,12 +508,9 @@ window.sendToApp = function (message) {
             window.iosListener.postMessage(messageString);
             return true;
         }
-
-        // No hay puente disponible - solo log en consola
         console.log("No native bridge available. Message would be sent:", message);
         return false;
     } catch (e) {
-        console.error("Error sending to app:", e);
         return false;
     }
 };
@@ -537,3 +525,15 @@ function showAlert(message) {
         sendToApp({ action: "show_alert", message: message });
     }
 }
+
+
+    function mensajeMultiplatform(msj){
+      window.kmpJsBridge.callNative("AbrirWS",JSON.stringify({message:msj}),
+        function (data) {
+           let dataVal = JSON.parse(data)
+           if(dataVal.message == "Exito"){
+              return
+           }
+        }
+      );
+    }

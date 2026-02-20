@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antojito Marino</title>
+    <title>Polleria Gonza</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
@@ -24,32 +24,33 @@
 </div>
 
 <!-- Pescadito animado -->
-<img id="pescadito" src="img/pescadito.webp" alt="Pescadito" style="display: none; position: absolute;">
+<img id="pescadito" src="img/piernita.webp" alt="Pescadito" style="display: none; position: absolute;">
 
 
     <!-- Sección de Categorías -->
     <section class="categories" id="inicio">
-        <img src="img/trios.webp" alt="Trios" onclick="sendToApp('trios')">
-        <img src="img/duos.webp" alt="Duos" onclick="myScrollToSection('duos')">
-        <img src="img/antojitos.webp" alt="Antojitos" onclick="scrollToSection('antojitos')">
-        <img src="img/especiales.webp" alt="Especiales" onclick="scrollToSection('especiales')">
-        <img src="img/bebidas.webp" alt="Bebidas" onclick="scrollToSection('bebidas')">
-        <img src="img/porciones.webp" alt="Porciones" onclick="scrollToSection('porciones')">
+        <img src="img/pollobrasa.webp" alt="Trios" onclick="sendToApp('pollobrasa')">
+        <img src="img/antojos.webp" alt="Trios" onclick="sendToApp('antojos')">
+        <img src="img/extras.webp" alt="Trios" onclick="sendToApp('extras')">
+        <img src="img/bebidas.webp" alt="Trios" onclick="sendToApp('bebidas')">
+
     </section>
 
     <!-- Secciones de Productos -->
-    <section class="products" id="antojitos">
+    <section class="products" id="pollobrasa">
             <div class="card antojitos">
-                <h2 class="text-delivery2">ANTOJITOS</h2>
+                <h2 class="text-delivery2">Pollo a la Brasa</h2>
                 <div class="product-list">
-                                            <div class="product-card">
-                            <h3>MINI CEVICHE</h3>
+
+                    <!-- INICIA CARD -->
+                    <div class="product-card">
+                            <h3>1/4 Pollo a la Brasa</h3>
                             <div class="product-body">
-                                <img src="img/prod/MINI%20CEVICHE.webp" alt="MINI CEVICHE">
-                                <p>Deliciosa y pequeña porción de ceviche de pescado, acompañado de yuca, camote y cancha</p>
+                                <img src="img/prod/cuartobrasa.webp" alt="1/4 Pollo a la Brasa">
+                                <p>Acompañado de papas fritas, ensalda y cremas</p>
                             </div>
                             <div class="product-footer">
-                                <span class="price">S/.12.00</span>
+                                <span class="price">S/.15.00</span>
                                 <button class="add-to-cart">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <circle cx="9" cy="21" r="1"></circle>
@@ -58,66 +59,374 @@
                                     </svg>
                                 </button>
                             </div>
+                    </div>
+                    <!-- FIN CARD -->
+
+                    <!-- INICIA CARD -->
+                    <div class="product-card">
+                        <h3>1/8 Pollo a la Brasa</h3>
+                        <div class="product-body">
+                            <img src="img/prod/octavobrasa.webp" alt="1/8 Pollo a la Brasa">
+                            <p>Acompañado de papas fritas, ensalda y cremas</p>
                         </div>
-                                            <div class="product-card">
-                            <h3>LECHE DE TIGRE</h3>
-                            <div class="product-body">
-                                <img src="img/prod/LECHE%20DE%20TIGRE.webp" alt="LECHE DE TIGRE">
-                                <p>Potente jugo concentrado de ceviche, con trocitos de pescado, yuca y camote, acompañado de cancha</p>
-                            </div>
-                            <div class="product-footer">
-                                <span class="price">S/.12.00</span>
-                                <button class="add-to-cart">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                        <div class="product-footer">
+                            <span class="price">S/.9.00</span>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
                         </div>
-                                            <div class="product-card">
-                            <h3>MINI ARROZ</h3>
-                            <div class="product-body">
-                                <img src="img/prod/MINI%20ARROZ.webp" alt="MINI ARROZ">
-                                <p>Deliciosa porción pequeña de arroz con mariscos</p>
-                            </div>
-                            <div class="product-footer">
-                                <span class="price">S/.13.00</span>
-                                <button class="add-to-cart">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                    </div>
+                    <!-- FIN CARD -->
+
+                    <!-- INICIA CARD -->
+                    <div class="product-card">
+                        <h3>1/2 Pollo a la Brasa</h3>
+                        <div class="product-body">
+                            <img src="img/prod/mediobrasa.webp" alt="1/2 Pollo a la Brasa">
+                            <p>Acompañado de una porcion de papas fritas, ensalda y cremas</p>
                         </div>
-                                            <div class="product-card">
-                            <h3>MINI CHAUFA</h3>
-                            <div class="product-body">
-                                <img src="img/prod/MINI%20CHAUFA.webp" alt="MINI CHAUFA">
-                                <p>Deliciosa porción pequeña de chaufa de mariscos</p>
-                            </div>
-                            <div class="product-footer">
-                                <span class="price">S/.13.00</span>
-                                <button class="add-to-cart">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                        <div class="product-footer">
+                            <span class="price">S/.32.00</span>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
                         </div>
-                                    </div>
+                    </div>
+                    <!-- FIN CARD -->
+
+                    <!-- INICIA CARD -->
+                    <div class="product-card">
+                        <h3>1 Pollo a la Brasa</h3>
+                        <div class="product-body">
+                            <img src="img/prod/unpollobrasa.webp" alt="1 Pollo a la Brasa">
+                            <p>Acompañado de dos guarniciones a escoger, ensalda y cremas</p>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">S/.58.00</span>
+                            <button class="add-to-cart">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- FIN CARD -->
+
+                </div>
             </div>
         </section>
+
+    <section class="products" id="antojos">
+        <div class="card antojitos">
+            <h2 class="text-delivery2">Antojos</h2>
+            <div class="product-list">
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Pollo Broaster</h3>
+                    <div class="product-body">
+                        <img src="img/prod/broaster.webp" alt="Pollo Broaster">
+                        <p>Acompañado de papas fritas/chaufa papa o platano + ensalada y cremas</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.10.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Alitasa a la BBQ (4 piezas)</h3>
+                    <div class="product-body">
+                        <img src="img/prod/alitas4.webp" alt="Alitasa a la BBQ (4 piezas)">
+                        <p>Acompañado de papas fritas/chaufa papa o platano + ensalada y cremas</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.15.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Alitasa a la BBQ (6 piezas)</h3>
+                    <div class="product-body">
+                        <img src="img/prod/alitas6.webp" alt="Alitasa a la BBQ (6 piezas)">
+                        <p>Acompañado de papas fritas/chaufa papa o platano + ensalada y cremas</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.18.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Salchipapa</h3>
+                    <div class="product-body">
+                        <img src="img/prod/salchipapa.webp" alt="Salchipapa">
+                        <p>Porcion generosa de papas fritas, hotdog clasico y ensalada de repollo</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.8.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="extras">
+        <div class="card antojitos">
+            <h2 class="text-delivery2">Guarniciones</h2>
+            <div class="product-list">
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Porcion Papa Frita</h3>
+                    <div class="product-body">
+                        <img src="img/prod/porcionpapa.webp" alt="orcion Papa Frita">
+                        <p>Una porcion generosa de papas fritas</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.7.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Porcion Platano Frito</h3>
+                    <div class="product-body">
+                        <img src="img/prod/porcionplatano.webp" alt="Porcion Platano Frito">
+                        <p>Una porcion generosa de platanos fritos</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.7.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Porcion Chaufa</h3>
+                    <div class="product-body">
+                        <img src="img/prod/porcionchaufa.webp" alt="Porcion Chaufa">
+                        <p>Una porcion de arroz chaufa</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.7.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="bebidas">
+        <div class="card antojitos">
+            <h2 class="text-delivery2">Bebidas</h2>
+            <div class="product-list">
+
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Maiz morado 1/2 litro</h3>
+                    <div class="product-body">
+                        <img src="img/prod/maizmoradomedio.webp" alt="Maiz morado 1/2 litro">
+                        <p>Refresco heladito de maiz morado</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.3.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Maiz morado 1 litro</h3>
+                    <div class="product-body">
+                        <img src="img/prod/maizmoradolitro.webp" alt="Maiz morado 1 litro">
+                        <p>Refresco heladito de maiz morado</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.6.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Gaseosa de 1 litro</h3>
+                    <div class="product-body">
+                        <img src="img/prod/gaseosa1l.webp" alt="Gaseosa de 1 litro">
+                        <p>Gaseosa Inka o CocaCola</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.7.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Gaseosa de 1.5 litros</h3>
+                    <div class="product-body">
+                        <img src="img/prod/gaseosa15l.webp" alt="Gaseosa de 1.5 litro">
+                        <p>Gaseosa Inka o CocaCola</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.9.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Gaseosa de 2.25 litros</h3>
+                    <div class="product-body">
+                        <img src="img/prod/gaseosa225l.webp" alt="Gaseosa de 2.25 litro">
+                        <p>Gaseosa Inka o CocaCola</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.11.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Gaseosa 500ml</h3>
+                    <div class="product-body">
+                        <img src="img/prod/gaseosa225l.webp" alt="Gaseosa 500ml">
+                        <p>Gaseosa Inka o CocaCola</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.4.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Agua Mineral</h3>
+                    <div class="product-body">
+                        <img src="img/prod/agua500.webp" alt="Agua Mineral">
+                        <p>Agua mineral con gas o sin gas de medio litro</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.4.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
+            </div>
+        </div>
+    </section>
     </div>
 
 <!-- Botón para volver al inicio -->
 <div class="back-to-top-container">
-    <img src="img/inicio.webp" alt="Inicio" class="back-to-top">
+    <img src="img/inicio.png" alt="Inicio" class="back-to-top">
    <!-- <p class="back-to-top-text">VOLVER AL INICIO</p> -->
 </div>
 
