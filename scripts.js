@@ -192,9 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Cerrar el modal
             document.getElementById("cart-modal").style.display = "none";
-
-            // Notificar a la app nativa si existe
-            sendToApp({ action: "order_completed" });
         });
     }
 
@@ -204,8 +201,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (section) {
             section.scrollIntoView({ behavior: "smooth" });
         }
-        // Notificar a la app nativa
-        sendToApp({ action: "scroll_to", section: sectionId });
     };
 
     // Versión alternativa para myScrollToSection
@@ -214,8 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (section) {
             section.scrollIntoView({ behavior: "smooth" });
         }
-        // Notificar a la app nativa
-        sendToApp({ action: "scroll_to", section: sectionId });
     };
 
     // Mostrar/ocultar el botón para volver al inicio
@@ -434,95 +427,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
         }
     }
-
-    // Notificar a la app que la página está lista
-    sendToApp({ action: "page_ready" });
 });
 
-// Receptor universal para ambas plataformas
-window.receiveFromApp = function (message) {
-    console.log("Mensaje recibido de la app:", message);
-
-    // Intentar parsear si es string
-    let data = message;
-    if (typeof message === "string") {
-        try {
-            data = JSON.parse(message);
-        } catch (e) {
-            console.warn("Could not parse message as JSON:", message);
-        }
-    }
-
-    // Manejar diferentes acciones
-    if (data && data.action) {
-        switch (data.action) {
-            case "clear_cart":
-                try {
-                    localStorage.removeItem("carrito");
-                    location.reload();
-                } catch (e) {
-                    console.warn("Error clearing cart:", e);
-                }
-                break;
-            case "get_cart":
-                let cart = [];
-                try {
-                    const storedCart = localStorage.getItem("carrito");
-                    cart = storedCart ? JSON.parse(storedCart) : [];
-                } catch (e) {
-                    console.warn("Error reading cart:", e);
-                }
-                sendToApp({ action: "cart_data", data: cart });
-                break;
-            case "scroll_to":
-                if (data.section) {
-                    const section = document.getElementById(data.section);
-                    if (section) {
-                        section.scrollIntoView({ behavior: "smooth" });
-                    }
-                }
-                break;
-            default:
-                console.log("Unknown action:", data.action);
-        }
-    }
-};
-
-// Enviar a la app (compatible con Android/iOS)
-window.sendToApp = function (message) {
-    try {
-        const messageString = typeof message === "string" ? message : JSON.stringify(message);
-
-        // Android
-        if (window.AndroidApp && typeof window.AndroidApp.postMessage === "function") {
-            window.AndroidApp.postMessage(messageString);
-            return true;
-        }
-        // iOS WKWebView
-        else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.iosListener) {
-            window.webkit.messageHandlers.iosListener.postMessage(messageString);
-            return true;
-        }
-        // iOS UIWebView (legacy)
-        else if (window.iosListener && typeof window.iosListener.postMessage === "function") {
-            window.iosListener.postMessage(messageString);
-            return true;
-        }
-        console.log("No native bridge available. Message would be sent:", message);
-        return false;
-    } catch (e) {
-        return false;
-    }
-};
-
-// Función helper para mostrar alertas (con fallback para WebView)
+// Función helper para mostrar alertas
 function showAlert(message) {
     if (typeof alert !== "undefined") {
         alert(message);
     } else {
         console.warn("Alert not available, message:", message);
-        // En WebView modernos, podríamos enviar a la app nativa
-        sendToApp({ action: "show_alert", message: message });
     }
 }
 

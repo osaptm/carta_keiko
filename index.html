@@ -29,10 +29,10 @@
 
     <!-- Sección de Categorías -->
     <section class="categories" id="inicio">
-        <img src="img/pollobrasa.webp" alt="Trios" onclick="sendToApp('pollobrasa')">
-        <img src="img/antojos.webp" alt="Trios" onclick="sendToApp('antojos')">
-        <img src="img/extras.webp" alt="Trios" onclick="sendToApp('extras')">
-        <img src="img/bebidas.webp" alt="Trios" onclick="sendToApp('bebidas')">
+        <img src="img/pollobrasa.webp" alt="Trios" onclick="scrollToSection('pollobrasa')">
+        <img src="img/antojos.webp" alt="Trios" onclick="scrollToSection('antojos')">
+        <img src="img/extras.webp" alt="Trios" onclick="scrollToSection('extras')">
+        <img src="img/bebidas.webp" alt="Trios" onclick="scrollToSection('bebidas')">
 
     </section>
 
@@ -106,7 +106,7 @@
                     <div class="product-card">
                         <h3>1 Pollo a la Brasa</h3>
                         <div class="product-body">
-                            <img src="img/prod/unpollobrasa.webp" alt="1 Pollo a la Brasa">
+                            <img src="img/prod/unpolllobrasa.webp" alt="1 Pollo a la Brasa">
                             <p>Acompañado de dos guarniciones a escoger, ensalda y cremas</p>
                         </div>
                         <div class="product-footer">
@@ -127,7 +127,7 @@
         </section>
 
     <section class="products" id="antojos">
-        <div class="card antojitos">
+        <div class="card duos">
             <h2 class="text-delivery2">Antojos</h2>
             <div class="product-list">
 
@@ -153,9 +153,9 @@
 
                 <!-- INICIA CARD -->
                 <div class="product-card">
-                    <h3>Alitasa a la BBQ (4 piezas)</h3>
+                    <h3>Alitas BBQ (4 piezas)</h3>
                     <div class="product-body">
-                        <img src="img/prod/alitas4.webp" alt="Alitasa a la BBQ (4 piezas)">
+                        <img src="img/prod/alitas4.webp" alt="Alitas BBQ (4 piezas)">
                         <p>Acompañado de papas fritas/chaufa papa o platano + ensalada y cremas</p>
                     </div>
                     <div class="product-footer">
@@ -173,9 +173,9 @@
 
                 <!-- INICIA CARD -->
                 <div class="product-card">
-                    <h3>Alitasa a la BBQ (6 piezas)</h3>
+                    <h3>Alitas BBQ (6 piezas)</h3>
                     <div class="product-body">
-                        <img src="img/prod/alitas6.webp" alt="Alitasa a la BBQ (6 piezas)">
+                        <img src="img/prod/alitas6.webp" alt="Alitas BBQ (6 piezas)">
                         <p>Acompañado de papas fritas/chaufa papa o platano + ensalada y cremas</p>
                     </div>
                     <div class="product-footer">
@@ -215,7 +215,7 @@
     </section>
 
     <section class="products" id="extras">
-        <div class="card antojitos">
+        <div class="card especiales">
             <h2 class="text-delivery2">Guarniciones</h2>
             <div class="product-list">
 
@@ -223,7 +223,7 @@
                 <div class="product-card">
                     <h3>Porcion Papa Frita</h3>
                     <div class="product-body">
-                        <img src="img/prod/porcionpapa.webp" alt="orcion Papa Frita">
+                        <img src="img/prod/porcionpapa.webp" alt="porcion Papa Frita">
                         <p>Una porcion generosa de papas fritas</p>
                     </div>
                     <div class="product-footer">
@@ -276,13 +276,31 @@
                     </div>
                 </div>
                 <!-- FIN CARD -->
-
+                <!-- INICIA CARD -->
+                <div class="product-card">
+                    <h3>Porcion Ensalada</h3>
+                    <div class="product-body">
+                        <img src="img/prod/porcionensalada.webp" alt="Porcion Ensalada">
+                        <p>Una porcion de ensalada lechuga repollo pepino tomate zanahoria</p>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">S/.5.00</span>
+                        <button class="add-to-cart">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- FIN CARD -->
             </div>
         </div>
     </section>
 
     <section class="products" id="bebidas">
-        <div class="card antojitos">
+        <div class="card bebidas">
             <h2 class="text-delivery2">Bebidas</h2>
             <div class="product-list">
 
@@ -385,7 +403,7 @@
                 <div class="product-card">
                     <h3>Gaseosa 500ml</h3>
                     <div class="product-body">
-                        <img src="img/prod/gaseosa225l.webp" alt="Gaseosa 500ml">
+                        <img src="img/prod/gaseosa600.webp" alt="Gaseosa 500ml">
                         <p>Gaseosa Inka o CocaCola</p>
                     </div>
                     <div class="product-footer">

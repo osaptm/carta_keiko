@@ -84,18 +84,19 @@ body {
     padding: 10px;
     border-radius: 10px;
     width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);*/
+    box-shadow: 0 4px 8px #f8f8f8;
     margin-bottom: 20px;
     text-align: center;
 }
 
-/* Product Category Colors */
+/* Product Category Colors
 .card.trios { background-color: rgba(248, 215, 218, 0.6); }
 .card.duos { background-color: rgba(212, 237, 218, 0.6); }
 .card.antojitos { background-color: rgba(255, 243, 205, 0.6); }
 .card.especiales { background-color: rgba(209, 236, 241, 0.6); }
 .card.bebidas { background-color: rgba(195, 230, 203, 0.6); }
-.card.porciones { background-color: rgba(226, 227, 229, 0.6); }
+.card.porciones { background-color: rgba(226, 227, 229, 0.6); } */
 
 /* =======================
    PRODUCT LIST & CARDS
@@ -115,6 +116,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
 }
 
 .product-card:hover {
@@ -123,25 +125,40 @@ body {
 }
 
 /* Product Image */
-.product-body img {
-    width: 60%;
-    max-width: 100px;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 5px;
+.product-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Product Text */
+.product-body img {
+    width: 90%;
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Product Title - Positioned over image */
 .product-card h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: #333;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #F57927;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 4px 10px;
+    z-index: 10;
+    white-space: nowrap;
+    background: transparent;
 }
 
 .product-body p {
     font-size: 12px;
     color: #666;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 /* =======================
