@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 mensaje += `* ${item.cantidad} - ${item.nombre} \n`;
             });
 
-            mensajeMultiplatform(mensaje)
+
 //            // Codificar mensaje para URL
 //            const mensajeCodificado = encodeURIComponent(mensaje);
 //
@@ -192,6 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Cerrar el modal
             document.getElementById("cart-modal").style.display = "none";
+
+            hideAllProductCounters()
+
+            mensajeMultiplatform(mensaje)
         });
     }
 
