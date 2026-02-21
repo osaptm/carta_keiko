@@ -440,7 +440,7 @@ function showAlert(message) {
 
 
     function mensajeMultiplatform(msj){
-      window.kmpJsBridge.callNative("AbrirWS",JSON.stringify({message:msj}),
+      window.kmpJsBridge.callNative("MessageWeb",JSON.stringify({message:msj}),
         function (data) {
            let dataVal = JSON.parse(data)
            if(dataVal.message == "Exito"){
