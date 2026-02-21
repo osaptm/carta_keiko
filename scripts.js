@@ -124,30 +124,35 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Función para limpiar el carrito y actualizar la UI
+    function clearCartAndUI() {
+        cart = [];
+        try {
+            localStorage.removeItem("carrito");
+        } catch (e) {
+            console.log("Errores carrito limpieza");
+        }
+        updateCartModal();
+        document.getElementById("cart-counter").textContent = "0";
+
+        // Ocultar todos los badges de productos
+        hideAllProductCounters();
+
+        // Agregar la clase para el efecto de palpitación
+        const cartContainer = document.getElementById("cart-container");
+        if (cartContainer) {
+            cartContainer.classList.add("palpitar");
+            setTimeout(() => {
+                cartContainer.classList.remove("palpitar");
+            }, 1000);
+        }
+    }
+
     // Manejo del botón "Vaciar Carrito"
     const clearCartBtn = document.getElementById("clear-cart");
     if (clearCartBtn) {
         clearCartBtn.addEventListener("click", () => {
-            cart = [];
-            try {
-                localStorage.removeItem("carrito");
-            } catch (e) {
-
-            }
-            updateCartModal();
-            document.getElementById("cart-counter").textContent = "0";
-
-            // Ocultar todos los badges de productos
-            hideAllProductCounters();
-
-            // Agregar la clase para el efecto de palpitación
-            const cartContainer = document.getElementById("cart-container");
-            if (cartContainer) {
-                cartContainer.classList.add("palpitar");
-                setTimeout(() => {
-                    cartContainer.classList.remove("palpitar");
-                }, 1000);
-            }
+            clearCartAndUI();
         });
     }
 
@@ -164,14 +169,17 @@ document.addEventListener("DOMContentLoaded", function () {
             const numeroWhatsApp = "979022809";
 
             // Mensaje base
-            let mensaje = "Hola, quisiera que me atiendan con mi pedido:\n\n";
+            let mensaje = "Hola, quisiera que me atiendan con mi pedido:
+
+";
 
             // Agregar cada producto al mensaje
             cart.forEach(item => {
-                mensaje += `* ${item.cantidad} - ${item.nombre} \n`;
+                mensaje += `* ${item.cantidad} - ${item.nombre}
+`;
             });
 
-            mensajeMultiplatform(mensaje)
+
 //            // Codificar mensaje para URL
 //            const mensajeCodificado = encodeURIComponent(mensaje);
 //
@@ -182,16 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
 //            window.open(urlWhatsApp, "_blank");
 
             // Limpiar el carrito después de enviar el pedido
-            cart = [];
-            try {
-                localStorage.removeItem("carrito");
-            } catch (e) {
-
-            }
-            document.getElementById("cart-counter").textContent = "0";
-
-            // Cerrar el modal
+            clearCartAndUI();
             document.getElementById("cart-modal").style.display = "none";
+            mensajeMultiplatform(mensaje)
         });
     }
 
