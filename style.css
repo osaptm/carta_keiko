@@ -387,6 +387,7 @@ th, td {
     border-bottom: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    vertical-align: middle;
 }
 
 th {
@@ -427,25 +428,53 @@ th {
     color: white;
 }
 
-/* Action Buttons */
+/* Action Buttons - Stepper vertical */
+.qty-stepper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+}
+
 .btn-action {
-    padding: 5px 10px;
+    width: 44px;
+    height: 30px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: filter 0.12s ease;
+    outline: none;
+}
+
+.btn-action svg {
+    pointer-events: none;
+    flex-shrink: 0;
 }
 
 .btn-action.plus {
-    background: green;
+    background: #28a745;
     color: white;
-    border-radius: 50%;
 }
 
 .btn-action.minus {
-    background: red;
+    background: #e63946;
     color: white;
-    border-radius: 50%;
+    border-top: 1px solid rgba(255,255,255,0.25);
+}
+
+.btn-action:active {
+    filter: brightness(0.80);
 }
 
 /* =======================

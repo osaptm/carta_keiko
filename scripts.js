@@ -74,8 +74,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>S/.${item.precio.toFixed(2)}</td>
                 <td>S/.${subtotal.toFixed(2)}</td>
                 <td>
-                    <button class="btn-action plus" data-index="${index}">+</button>
-                    <button class="btn-action minus" data-index="${index}">-</button>
+                    <div class="qty-stepper">
+                        <button class="btn-action plus" data-index="${index}" aria-label="Agregar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                                <polyline points="18 15 12 9 6 15"></polyline>
+                            </svg>
+                        </button>
+                        <button class="btn-action minus" data-index="${index}" aria-label="Quitar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </td>
             `;
 
@@ -90,28 +100,31 @@ document.addEventListener("DOMContentLoaded", function () {
         updateAllProductCounters();
     }
 
-    // Manejar los botones "+" y "-" dentro del modal
+    // Manejar los botones "▲" y "▼" dentro del modal (usa closest para capturar clicks en el SVG interior)
     cartItemsContainer.addEventListener("click", (event) => {
-        if (event.target.classList.contains("plus") || event.target.classList.contains("minus")) {
-            const index = parseInt(event.target.getAttribute("data-index"));
-            const productName = cart[index]?.nombre; // Guardar nombre antes de modificar
+        const btn = event.target.closest(".btn-action");
+        if (!btn) return;
 
-            if (event.target.classList.contains("plus")) {
-                cart[index].cantidad++;
-            } else {
-                cart[index].cantidad--;
-                if (cart[index].cantidad <= 0) {
-                    cart.splice(index, 1); // Eliminar producto si la cantidad es 0
-                }
+        const index = parseInt(btn.getAttribute("data-index"));
+        if (isNaN(index) || !cart[index]) return;
+
+        const productName = cart[index].nombre; // Guardar nombre antes de modificar
+
+        if (btn.classList.contains("plus")) {
+            cart[index].cantidad++;
+        } else if (btn.classList.contains("minus")) {
+            cart[index].cantidad--;
+            if (cart[index].cantidad <= 0) {
+                cart.splice(index, 1); // Eliminar producto si la cantidad es 0
             }
+        }
 
-            saveCart();
-            updateCartModal();
+        saveCart();
+        updateCartModal();
 
-            // Actualizar el badge del producto específico que fue modificado
-            if (productName) {
-                updateSpecificProductCounter(productName);
-            }
+        // Actualizar el badge del producto específico que fue modificado
+        if (productName) {
+            updateSpecificProductCounter(productName);
         }
     });
 
